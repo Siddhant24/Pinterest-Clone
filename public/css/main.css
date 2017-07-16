@@ -152,7 +152,7 @@ img {
 
 /****** Profile Styling ******/
 
-.github-profile {
+.twitter-profile {
 	width: 350px;
 	height: 200px;
 	border-radius: 3px;
@@ -162,15 +162,15 @@ img {
 	color: #000;
 }
 
-.github-profile p:first-child {
+.twitter-profile p:first-child {
 	padding-top: 16px;
 }
 
-.github-profile p:nth-child(5) {
+.twitter-profile p:nth-child(5) {
 	margin-bottom: 16px
 }
 
-.github-profile p {
+.twitter-profile p {
 	margin: 0 0 0 16px;
 	text-align: left;
 }
@@ -183,16 +183,16 @@ span {
 	font-weight: 500;
 }
 
-.github-profile > img {
+.twitter-profile > img {
 	padding-top: 16px;
 	margin-bottom: 16px;
 }
 
-.github-profile .menu:hover {
+.twitter-profile .menu:hover {
 	color: #FFA000;
 }
 
-.github-profile .menu:active {
+.twitter-profile .menu:active {
 	color: #FF630D;
 }
 
