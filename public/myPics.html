@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title></title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <link href="/public/css/main.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+</head>
+
+<header>
+    <div class="row heading">
+        <div class="col-sm-2"><button class="btn-link"><i class="fa fa-home" aria-hidden="true" style="font-size:48px;"></i>Home</button></div>
+        <div class="col-sm-6">
+            <h2 class="pinterastic-text">Pinterastic</h2>
+        </div>
+        <div class="col-sm-4">
+            <div class="user-info">
+                <p>Welcome, <span id="display-name"></span>!</p>
+                <a class="menu" href="/profile">Profile</a>
+                <p>|</p>
+                <a class="menu" href="/logout">Logout</a>
+            </div>
+        </div>
+    </div>
+</header>
+
+<body>
+    <div class="container-fluid">
+        <div class="grid">
+            <div class="grid-item"></div>
+        </div>
+    </div>
+    <script type="text/javascript" src="common/ajax-functions.js"></script>
+    <script type="text/javascript" src="controllers/userController.client.js"></script>
+</body>
+
+</html>
