@@ -21,12 +21,17 @@ body {
 	font-size: 16px;
 	margin: 0;
 	padding: 0;
+	background-color:#23272d;
 }
 
 header {
 	color: #00BCD4;
 	height: 56px;
 	margin: 0 0 14px 0;
+}
+
+.heading{
+	background-color: #dce2ed;
 }
 
 p {
@@ -113,7 +118,7 @@ img {
 	margin: 0 0 0 0;
 	font-weight: 500;
 	font-size: 60px;
-	color: #FFA000;
+	color: #2a4166;
 }
 
 /****** Click Styling ******/
@@ -209,9 +214,14 @@ span {
 
 /***Masonry***/
 
+.grid{
+	margin-top: 100px;
+	border: black 2px solid;
+}
+
 .grid-item {
   float: left;
-  width: 80px;
+  width: 190px;
   height: 60px;
   border: 2px solid hsla(0, 0%, 0%, 0.5);
 }
