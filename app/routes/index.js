@@ -1,48 +1,58 @@
 'use strict';
 
 var path = process.cwd();
+var imageHandler = require('../controllers/imageHandler.js');
 
-module.exports = function (app, passport) {
+module.exports = function(app, passport) {
 
-	function isLoggedIn (req, res, next) {
+	function isLoggedIn(req, res, next) {
 		if (req.isAuthenticated()) {
 			return next();
-		} else {
+		}
+		else {
 			res.redirect('/login');
 		}
 	}
 
 	app.route('/')
-		.get(isLoggedIn, function (req, res) {
+		.get(isLoggedIn, function(req, res) {
 			res.sendFile(path + '/public/index.html');
 		});
-		
+
 	app.route('/my')
-		.get(isLoggedIn, function(req, res){
-			res.sendFile(path + '/public/myPics.html');	
+		.get(isLoggedIn, function(req, res) {
+			res.sendFile(path + '/public/myPics.html');
 		})
-		.post(isLoggedIn, function(req, res){
-			
+		.post(isLoggedIn, function(req, res) {
+			console.log(req.body);
+			imageHandler.newImage(req.body, req.user._id);
+			res.redirect('/my');
+		});
+
+	app.route('/myPics')
+		.get(isLoggedIn, async function(req, res) {
+			var data = await imageHandler.findMyImages(req.user._id);
+			res.send(data);
 		});
 
 	app.route('/login')
-		.get(function (req, res) {
+		.get(function(req, res) {
 			res.sendFile(path + '/public/login.html');
 		});
 
 	app.route('/logout')
-		.get(function (req, res) {
+		.get(function(req, res) {
 			req.logout();
 			res.redirect('/login');
 		});
 
 	app.route('/profile')
-		.get(isLoggedIn, function (req, res) {
+		.get(isLoggedIn, function(req, res) {
 			res.sendFile(path + '/public/profile.html');
 		});
 
 	app.route('/api/:id')
-		.get(isLoggedIn, function (req, res) {
+		.get(isLoggedIn, function(req, res) {
 			res.json(req.user.twitter);
 		});
 
