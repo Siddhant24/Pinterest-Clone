@@ -1,7 +1,7 @@
 'use strict';
 
-var Image = require('./models/image.js');
-var User = require('./models/users.js');
+var Image = require('../models/image.js');
+var User = require('../models/users.js');
 
 module.exports = {
 
@@ -13,7 +13,7 @@ module.exports = {
         newImage.caption = data.caption;
         newImage.likes.push(user_id);
         newImage.number = 0;
-
+        console.log(newImage);
         newImage.save(function(err) {
             if (err) {
                 throw err;
