@@ -6,9 +6,9 @@
     function newGridElement(image) {
         var gridItem = document.createElement('div');
         gridItem.setAttribute("class", "grid-item text-center");
-        //gridItem.innerHTML = '<i class="fa fa-times-circle-o delete" aria-hidden="true" style="font-size:25px;" id=\"' + image._id + '\"></i>';
         gridItem.innerHTML += '<div class="grid-image"><img src=\"' + image.link + '\" class="img-fluid"></div>';
         gridItem.innerHTML += '<div class="caption-text text-center">' + image.caption + '</div>';
+        gridItem.innerHTML += '<button class="btn-link owner-link" id=\"' + image.owner._id + '\">' + image.owner.twitter.username + '</button>';
         gridItem.innerHTML += '<i class="fa fa-heart like" aria-hidden="true" style="font-size:20px;" id=\".' + image._id + '\"></i>' + image.number;
         grid.append(gridItem);
     }
@@ -37,17 +37,7 @@
             var data = await fetchData();
             console.log(data);
             await addImages(data.reverse());
-            console.log(document.querySelectorAll('.delete').forEach(val => console.log(val)));
-            /*     document.querySelectorAll('.delete').forEach(val => val.addEventListener('click', function(e) {
-                console.log(e.target.id);
-                ajaxFunctions.ajaxPostRequest({
-                    image_id: e.target.id
-                }, appUrl + '/allPics', function(msg) {
-                    console.log(msg);
-                    if (msg === 'deleted') window.location.reload();
-                });
-            }));
-*/
+
             document.querySelectorAll('.like').forEach(val => val.addEventListener('click', function(e) {
                 console.log(e.target.id.slice(1));
                 ajaxFunctions.ajaxPostRequest({
@@ -55,8 +45,14 @@
                 }, appUrl + '/myPics', function(msg) {
                     console.log(msg);
                     if (msg === 'added like' || msg === 'deleted like') window.location.reload();
+                    else if (msg === 'unauthenticated') window.alert("Login required to vote");
                 });
             }));
+
+            document.querySelectorAll('.owner-link').forEach(val => val.addEventListener('click', function(e) {
+                window.location.href = window.location.origin + '/wall?id=' + e.target.id;
+            }));
+            
         }
         catch (msg) {
             console.log(msg);

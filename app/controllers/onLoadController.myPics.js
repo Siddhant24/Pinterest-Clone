@@ -36,6 +36,7 @@
         try {
             var data = await fetchData();
             await addImages(data.reverse());
+            document.querySelector('.username-text').innerHTML = data[0].owner.twitter.username;
             console.log(document.querySelectorAll('.delete').forEach(val => console.log(val)));
             document.querySelectorAll('.delete').forEach(val => val.addEventListener('click', function(e) {
                 console.log(e.target.id);
@@ -53,9 +54,13 @@
                     image_id: e.target.id.slice(1)
                 }, appUrl + '/myPics', function(msg) {
                     console.log(msg);
-                    if(msg === 'added like' || msg === 'deleted like') window.location.reload();
+                    if (msg === 'added like' || msg === 'deleted like') window.location.reload();
                 });
             }));
+            
+            document.querySelector('.home').addEventListener('click', function(){
+                window.location.href = window.location.origin;
+            });
         }
         catch (msg) {
             console.log(msg);
