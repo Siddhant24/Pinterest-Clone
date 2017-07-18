@@ -237,7 +237,7 @@ span {
 
 .grid-item {
 	float: left;
-	width: 190px;
+	width: 250px;
 	border: 2px solid hsla(0, 0%, 0%, 0.5);
 	background-color: white;
 	border-radius: 10px;
@@ -256,7 +256,7 @@ span {
 }
 
 .grid-image{
-	width: 150px;
+	width: 210px;
 	margin-left: 20px;
 }
 

@@ -18,12 +18,13 @@
       ajaxFunctions.ajaxRequest('GET', appUrl + '/authenticated', function(isAuthenticated) {
          console.log(isAuthenticated);
          if (JSON.parse(isAuthenticated)) {
-            userinfo.removeAttribute('style');
+            if (userinfo)
+               userinfo.removeAttribute('style');
             ajaxFunctions.ajaxRequest('GET', apiUrl, function(data) {
                var userObject = JSON.parse(data).twitter;
                if (myWall) {
                   myWall.removeAttribute('style');
-                  myWall.addEventListener('click', function(){
+                  myWall.addEventListener('click', function() {
                      window.location.href = window.location.origin + '/my';
                   })
                }
