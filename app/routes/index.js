@@ -33,6 +33,20 @@ module.exports = function(app, passport) {
 		.get(isLoggedIn, async function(req, res) {
 			var data = await imageHandler.findMyImages(req.user._id);
 			res.send(data);
+		})
+		.post(isLoggedIn, async function(req, res){
+			res.send(await imageHandler.addLike(req.user._id, req.body.image_id));	
+		});
+
+	app.route('/allPics')
+		.get(isLoggedIn, async function(req, res) {
+			var data = await imageHandler.findAllImages();
+			res.send(data);
+		})
+		.post(isLoggedIn, function(req, res) {
+			console.log(req.body);
+			imageHandler.deleteMyImage(req.body.image_id);
+			res.send("deleted");
 		});
 
 	app.route('/login')
