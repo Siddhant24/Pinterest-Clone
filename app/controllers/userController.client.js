@@ -26,7 +26,7 @@
                   myWall.removeAttribute('style');
                   myWall.addEventListener('click', function() {
                      window.location.href = window.location.origin + '/my';
-                  })
+                  });
                }
                if (userObject.displayName !== null) {
                   updateHtmlElement(userObject, displayName, 'displayName');
