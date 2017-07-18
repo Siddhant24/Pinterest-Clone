@@ -15,7 +15,7 @@ module.exports = function(app, passport) {
 	}
 
 	app.route('/')
-		.get(isLoggedIn, function(req, res) {
+		.get(function(req, res) {
 			res.sendFile(path + '/public/index.html');
 		});
 
@@ -34,12 +34,14 @@ module.exports = function(app, passport) {
 			var data = await imageHandler.findMyImages(req.user._id);
 			res.send(data);
 		})
-		.post(isLoggedIn, async function(req, res){
-			res.send(await imageHandler.addLike(req.user._id, req.body.image_id));	
+		.post(async function(req, res) {
+			if (req.isAuthenticated())
+				res.send(await imageHandler.addLike(req.user._id, req.body.image_id));
+			else res.send("unauthenticated");
 		});
 
 	app.route('/allPics')
-		.get(isLoggedIn, async function(req, res) {
+		.get(async function(req, res) {
 			var data = await imageHandler.findAllImages();
 			res.send(data);
 		})
@@ -47,6 +49,23 @@ module.exports = function(app, passport) {
 			console.log(req.body);
 			imageHandler.deleteMyImage(req.body.image_id);
 			res.send("deleted");
+		});
+
+	app.route('/authenticated')
+		.get(function(req, res) {
+			if (req.isAuthenticated()) res.send(true);
+			else res.send(false);
+		});
+
+	app.route('/wall')
+		.get(function(req, res) {
+			res.sendFile(path + '/public/wall.html');
+		});
+		
+	app.route('/wallPics')
+		.get(async function(req, res){
+			var data = await imageHandler.findMyImages(req.query.id);
+			res.send(data);
 		});
 
 	app.route('/login')
@@ -67,7 +86,7 @@ module.exports = function(app, passport) {
 
 	app.route('/api/:id')
 		.get(isLoggedIn, function(req, res) {
-			res.json(req.user.twitter);
+			res.json(req.user);
 		});
 
 	app.route('/auth/twitter')
