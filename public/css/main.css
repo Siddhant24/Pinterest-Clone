@@ -235,6 +235,9 @@ span {
 	float: left;
 	width: 190px;
 	border: 2px solid hsla(0, 0%, 0%, 0.5);
+	background-color: white;
+	border-radius: 10px;
+	margin: 5px;
 }
 
 .image-preview {
@@ -246,6 +249,10 @@ span {
 
 #preview{
 	height: 100%;
+}
+
+.grid-image{
+	width: 150px;
 }
 
 /* The Modal (background) */
