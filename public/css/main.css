@@ -119,11 +119,16 @@ img {
 
 .pinterastic-text {
 	/* Styling for the text */
+	display: inline-block;
 	padding: 0;
 	margin: 0 0 0 0;
 	font-weight: 500;
 	font-size: 60px;
 	color: #2a4166;
+}
+
+.my-wall{
+	float: right;
 }
 
 
@@ -253,6 +258,10 @@ span {
 .grid-image{
 	width: 150px;
 	margin-left: 20px;
+}
+
+.owner-link{
+	font-size: 12px;
 }
 
 /* The Modal (background) */
