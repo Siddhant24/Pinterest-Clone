@@ -25,3 +25,10 @@ window.onclick = function(event) {
         modal.style.display = "none";
     }
 };
+
+document.getElementById('link').addEventListener('keydown', function(e){
+    setTimeout(function(){
+        //console.log(e.target.value);
+        document.getElementById('preview').setAttribute('src', e.target.value);
+    }, 5000);
+});
