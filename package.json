@@ -3,6 +3,9 @@
   "version": "0.0.1",
   "description": "",
   "main": "server.js",
+  "engines": {
+    "node": "4.8.4"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/johnstonbl01/clementinejs-fcc"
