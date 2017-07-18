@@ -35,7 +35,7 @@ module.exports = {
 
     findAllImages: function() {
         return new Promise(function(resolve, reject) {
-            Image.find({}, function(err, docs) {
+            Image.find().populate('owner').exec(function(err, docs) {
                 if (err) console.error(err);
                 resolve(docs);
             });
