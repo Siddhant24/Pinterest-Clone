@@ -20,6 +20,9 @@ module.exports = function (app, passport) {
 	app.route('/my')
 		.get(isLoggedIn, function(req, res){
 			res.sendFile(path + '/public/myPics.html');	
+		})
+		.post(isLoggedIn, function(req, res){
+			
 		});
 
 	app.route('/login')
