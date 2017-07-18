@@ -244,6 +244,9 @@ span {
 	border: black 1px solid;
 }
 
+#preview{
+	height: 100%;
+}
 
 /* The Modal (background) */
 
