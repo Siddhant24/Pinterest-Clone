@@ -25,7 +25,7 @@ module.exports = {
         return new Promise(function(resolve, reject) {
             Image.find({
                 owner: user_id
-            }, function(err, docs) {
+            }).populate('owner').exec(function(err, docs) {
                 if (err) console.error(err);
               //  console.log(docs);
                 resolve(docs);
