@@ -26,7 +26,6 @@ function imgError(image) {
                 if (index === data.length - 1) resolve();
             });
         }).then(function() {
-            console.log("added");
         });
     }
 
@@ -43,23 +42,18 @@ function imgError(image) {
             var data = await fetchData();
             await addImages(data.reverse());
             document.querySelector('.username-text').innerHTML = data[0].owner.twitter.username;
-            console.log(document.querySelectorAll('.delete').forEach(val => console.log(val)));
             document.querySelectorAll('.delete').forEach(val => val.addEventListener('click', function(e) {
-                console.log(e.target.id);
                 ajaxFunctions.ajaxPostRequest({
                     image_id: e.target.id
                 }, appUrl + '/allPics', function(msg) {
-                    console.log(msg);
                     if (msg === 'deleted') window.location.reload();
                 });
             }));
 
             document.querySelectorAll('.like').forEach(val => val.addEventListener('click', function(e) {
-                console.log(e.target.id.slice(1));
                 ajaxFunctions.ajaxPostRequest({
                     image_id: e.target.id.slice(1)
                 }, appUrl + '/myPics', function(msg) {
-                    console.log(msg);
                     if (msg === 'added like' || msg === 'deleted like') window.location.reload();
                 });
             }));

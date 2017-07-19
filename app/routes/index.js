@@ -24,7 +24,6 @@ module.exports = function(app, passport) {
 			res.sendFile(path + '/public/myPics.html');
 		})
 		.post(isLoggedIn, function(req, res) {
-			console.log(req.body);
 			imageHandler.newImage(req.body, req.user._id);
 			res.redirect('/my');
 		});
@@ -46,7 +45,6 @@ module.exports = function(app, passport) {
 			res.send(data);
 		})
 		.post(isLoggedIn, function(req, res) {
-			console.log(req.body);
 			imageHandler.deleteMyImage(req.body.image_id);
 			res.send("deleted");
 		});

@@ -16,7 +16,6 @@
    ajaxFunctions.ready(function() {
 
       ajaxFunctions.ajaxRequest('GET', appUrl + '/authenticated', function(isAuthenticated) {
-         console.log(isAuthenticated);
          if (JSON.parse(isAuthenticated)) {
             if (userinfo)
                userinfo.removeAttribute('style');
