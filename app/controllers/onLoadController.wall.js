@@ -7,7 +7,7 @@ function imgError(image) {
     image.src = "/public/img/broken-image.jpg";
     setTimeout(function() {
         msnry.layout();
-    }, 500);
+    }, 2000);
     return true;
 }
 
