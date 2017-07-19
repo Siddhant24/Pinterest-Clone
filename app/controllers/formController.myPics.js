@@ -23,5 +23,5 @@ window.onclick = function(event) {
 document.getElementById('link').addEventListener('keydown', function(e){
     setTimeout(function(){
         document.getElementById('preview').setAttribute('src', e.target.value);
-    }, 5000);
+    }, 2000);
 });

@@ -1,8 +1,13 @@
 'use strict';
 
+var msnry;
+
 function imgError(image) {
     image.onerror = "";
     image.src = "/public/img/broken-image.jpg";
+    setTimeout(function() {
+        msnry.layout();
+    }, 500);
     return true;
 }
 
@@ -25,8 +30,7 @@ function imgError(image) {
                 newGridElement(image);
                 if (index === data.length - 1) resolve();
             });
-        }).then(function() {
-        });
+        }).then(function() {});
     }
 
     function fetchData() {
@@ -52,8 +56,15 @@ function imgError(image) {
                     else if (msg === 'unauthenticated') window.alert("Login required to vote");
                 });
             }));
-            document.querySelector('.home').addEventListener('click', function(){
+            
+            document.querySelector('.home').addEventListener('click', function() {
                 window.location.href = window.location.origin;
+            });
+
+            msnry = new Masonry('.grid', {
+                itemSelector: '.grid-item',
+                columnWidth: '.grid-item',
+                isFitWidth: true
             });
         }
         catch (msg) {

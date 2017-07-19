@@ -1,8 +1,12 @@
 'use strict';
+var msnry;
 
 function imgError(image) {
     image.onerror = "";
     image.src = "/public/img/broken-image.jpg";
+    setTimeout(function() {
+        msnry.layout();
+    }, 500);
     return true;
 }
 
@@ -25,8 +29,7 @@ function imgError(image) {
                 newGridElement(image);
                 if (index === data.length - 1) resolve();
             });
-        }).then(function() {
-        });
+        }).then(function() {});
     }
 
     function fetchData() {
@@ -54,7 +57,13 @@ function imgError(image) {
             document.querySelectorAll('.owner-link').forEach(val => val.addEventListener('click', function(e) {
                 window.location.href = window.location.origin + '/wall?id=' + e.target.id;
             }));
-            
+
+            msnry = new Masonry('.grid', {
+                itemSelector: '.grid-item',
+                columnWidth: '.grid-item',
+                isFitWidth: true
+            });
+
         }
         catch (msg) {
             console.log(msg);

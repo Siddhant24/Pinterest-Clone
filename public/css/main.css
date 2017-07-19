@@ -29,6 +29,7 @@ header {
 	color: #00BCD4;
 	height: 56px;
 	margin: 0 0 14px 0;
+	margin-bottom: 100px;
 }
 
 .heading {
@@ -231,8 +232,7 @@ span {
 /***Masonry***/
 
 .grid {
-	margin-top: 100px;
-	border: black 2px solid;
+	margin: 0 auto;
 }
 
 .grid-item {
