@@ -45,7 +45,7 @@
             });
          }
          else {
-            userinfo.innerHTML = '<a href="/auth/twitter"><div class="btn" id="login-btn"><p>LOGIN WITH TWITTER</p></div></a>';
+            userinfo.innerHTML = '<a href="/auth/twitter"><div class="btn" id="login-btn"><p><i class="fa fa-twitter" aria-hidden="true" style="font-size:25px;"></i>LOGIN WITH TWITTER</p></div></a>';
             userinfo.removeAttribute('style');
          }
       });
